@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9900,7 +9900,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	return jQuery;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
 
 /***/ }),
 /* 1 */
@@ -11280,6 +11280,36 @@ exports.Nest = Nest;
 "use strict";
 
 
+module.exports = function (module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function () {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function get() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function get() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -11450,7 +11480,7 @@ Touch.init = function ($) {
 exports.Touch = Touch;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11834,7 +11864,7 @@ Accordion.defaults = {
 exports.Accordion = Accordion;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12226,7 +12256,7 @@ AccordionMenu.defaults = {
 exports.AccordionMenu = AccordionMenu;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12842,7 +12872,7 @@ Drilldown.defaults = {
 exports.Drilldown = Drilldown;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13377,7 +13407,7 @@ DropdownMenu.defaults = {
 exports.DropdownMenu = DropdownMenu;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13631,7 +13661,7 @@ Positionable.defaults = {
 exports.Positionable = Positionable;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13814,7 +13844,7 @@ SmoothScroll.defaults = {
 exports.SmoothScroll = SmoothScroll;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14368,7 +14398,7 @@ Tabs.defaults = {
 exports.Tabs = Tabs;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14434,37 +14464,8 @@ function Timer(elem, options, cb) {
 exports.Timer = Timer;
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function (module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function () {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function get() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function get() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-/***/ }),
-/* 20 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14478,17 +14479,16 @@ var _whatInput = __webpack_require__(39);
 
 var _whatInput2 = _interopRequireDefault(_whatInput);
 
-var _foundationSites = __webpack_require__(22);
-
-var _foundationSites2 = _interopRequireDefault(_foundationSites);
+__webpack_require__(40);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.$ = _jquery2.default;
 
+// import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
-// import './lib/foundation-explicit-pieces';
+
 
 (0, _jquery2.default)(function () {
   (0, _jquery2.default)(window).scroll(function () {
@@ -14501,160 +14501,30 @@ window.$ = _jquery2.default;
   });
 });
 
+(0, _jquery2.default)(function () {
+  // Slow slides for internal links
+  (0, _jquery2.default)('.menu a').click(function () {
+    console.log("navigate");
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = (0, _jquery2.default)(this.hash);
+      target = target.length ? target : (0, _jquery2.default)('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        (0, _jquery2.default)('html,body').animate({
+          scrollTop: target.offset().top - 70
+        }, 1000);
+        if ((0, _jquery2.default)(window).width() < 600) {
+          (0, _jquery2.default)('nav ul').slideUp();
+        }
+        return false;
+      }
+    }
+  });
+});
+
 (0, _jquery2.default)(document).foundation();
 
 /***/ }),
-/* 21 */,
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _foundation = __webpack_require__(24);
-
-var _foundationUtil = __webpack_require__(1);
-
-var _foundationUtil2 = __webpack_require__(7);
-
-var _foundationUtil3 = __webpack_require__(8);
-
-var _foundationUtil4 = __webpack_require__(3);
-
-var _foundationUtil5 = __webpack_require__(4);
-
-var _foundationUtil6 = __webpack_require__(6);
-
-var _foundationUtil7 = __webpack_require__(9);
-
-var _foundationUtil8 = __webpack_require__(18);
-
-var _foundationUtil9 = __webpack_require__(10);
-
-var _foundationUtil10 = __webpack_require__(5);
-
-var _foundation2 = __webpack_require__(23);
-
-var _foundation3 = __webpack_require__(11);
-
-var _foundation4 = __webpack_require__(12);
-
-var _foundation5 = __webpack_require__(13);
-
-var _foundation6 = __webpack_require__(25);
-
-var _foundation7 = __webpack_require__(14);
-
-var _foundation8 = __webpack_require__(26);
-
-var _foundation9 = __webpack_require__(27);
-
-var _foundation10 = __webpack_require__(28);
-
-var _foundation11 = __webpack_require__(29);
-
-var _foundation12 = __webpack_require__(30);
-
-var _foundation13 = __webpack_require__(32);
-
-var _foundation14 = __webpack_require__(33);
-
-var _foundation15 = __webpack_require__(34);
-
-var _foundation16 = __webpack_require__(35);
-
-var _foundation17 = __webpack_require__(16);
-
-var _foundation18 = __webpack_require__(36);
-
-var _foundation19 = __webpack_require__(17);
-
-var _foundation20 = __webpack_require__(37);
-
-var _foundation21 = __webpack_require__(38);
-
-var _foundation22 = __webpack_require__(31);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_foundation.Foundation.addToJquery(_jquery2.default);
-
-// Add Foundation Utils to Foundation global namespace for backwards
-// compatibility.
-
-_foundation.Foundation.rtl = _foundationUtil.rtl;
-_foundation.Foundation.GetYoDigits = _foundationUtil.GetYoDigits;
-_foundation.Foundation.transitionend = _foundationUtil.transitionend;
-
-_foundation.Foundation.Box = _foundationUtil2.Box;
-_foundation.Foundation.onImagesLoaded = _foundationUtil3.onImagesLoaded;
-_foundation.Foundation.Keyboard = _foundationUtil4.Keyboard;
-_foundation.Foundation.MediaQuery = _foundationUtil5.MediaQuery;
-_foundation.Foundation.Motion = _foundationUtil6.Motion;
-_foundation.Foundation.Move = _foundationUtil6.Move;
-_foundation.Foundation.Nest = _foundationUtil7.Nest;
-_foundation.Foundation.Timer = _foundationUtil8.Timer;
-
-// Touch and Triggers previously were almost purely sede effect driven,
-// so n../../js// need to add it to Foundation, just init them.
-
-_foundationUtil9.Touch.init(_jquery2.default);
-
-_foundationUtil10.Triggers.init(_jquery2.default, _foundation.Foundation);
-
-_foundation.Foundation.plugin(_foundation2.Abide, 'Abide');
-
-_foundation.Foundation.plugin(_foundation3.Accordion, 'Accordion');
-
-_foundation.Foundation.plugin(_foundation4.AccordionMenu, 'AccordionMenu');
-
-_foundation.Foundation.plugin(_foundation5.Drilldown, 'Drilldown');
-
-_foundation.Foundation.plugin(_foundation6.Dropdown, 'Dropdown');
-
-_foundation.Foundation.plugin(_foundation7.DropdownMenu, 'DropdownMenu');
-
-_foundation.Foundation.plugin(_foundation8.Equalizer, 'Equalizer');
-
-_foundation.Foundation.plugin(_foundation9.Interchange, 'Interchange');
-
-_foundation.Foundation.plugin(_foundation10.Magellan, 'Magellan');
-
-_foundation.Foundation.plugin(_foundation11.OffCanvas, 'OffCanvas');
-
-_foundation.Foundation.plugin(_foundation12.Orbit, 'Orbit');
-
-_foundation.Foundation.plugin(_foundation13.ResponsiveMenu, 'ResponsiveMenu');
-
-_foundation.Foundation.plugin(_foundation14.ResponsiveToggle, 'ResponsiveToggle');
-
-_foundation.Foundation.plugin(_foundation15.Reveal, 'Reveal');
-
-_foundation.Foundation.plugin(_foundation16.Slider, 'Slider');
-
-_foundation.Foundation.plugin(_foundation17.SmoothScroll, 'SmoothScroll');
-
-_foundation.Foundation.plugin(_foundation18.Sticky, 'Sticky');
-
-_foundation.Foundation.plugin(_foundation19.Tabs, 'Tabs');
-
-_foundation.Foundation.plugin(_foundation20.Toggler, 'Toggler');
-
-_foundation.Foundation.plugin(_foundation21.Tooltip, 'Tooltip');
-
-_foundation.Foundation.plugin(_foundation22.ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
-
-exports.default = _foundation.Foundation;
-
-/***/ }),
+/* 22 */,
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15713,7 +15583,7 @@ var _foundationUtil = __webpack_require__(3);
 
 var _foundationUtil2 = __webpack_require__(1);
 
-var _foundation = __webpack_require__(15);
+var _foundation = __webpack_require__(16);
 
 var _foundationUtil3 = __webpack_require__(5);
 
@@ -16843,7 +16713,7 @@ var _foundationUtil = __webpack_require__(1);
 
 var _foundation = __webpack_require__(2);
 
-var _foundation2 = __webpack_require__(16);
+var _foundation2 = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17793,7 +17663,7 @@ var _foundationUtil = __webpack_require__(3);
 
 var _foundationUtil2 = __webpack_require__(6);
 
-var _foundationUtil3 = __webpack_require__(18);
+var _foundationUtil3 = __webpack_require__(19);
 
 var _foundationUtil4 = __webpack_require__(8);
 
@@ -17801,7 +17671,7 @@ var _foundationUtil5 = __webpack_require__(1);
 
 var _foundation = __webpack_require__(2);
 
-var _foundationUtil6 = __webpack_require__(10);
+var _foundationUtil6 = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18403,9 +18273,9 @@ var _foundationUtil2 = __webpack_require__(1);
 
 var _foundation = __webpack_require__(2);
 
-var _foundation2 = __webpack_require__(11);
+var _foundation2 = __webpack_require__(12);
 
-var _foundation3 = __webpack_require__(17);
+var _foundation3 = __webpack_require__(18);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18699,11 +18569,11 @@ var _foundationUtil2 = __webpack_require__(1);
 
 var _foundation = __webpack_require__(2);
 
-var _foundation2 = __webpack_require__(14);
+var _foundation2 = __webpack_require__(15);
 
-var _foundation3 = __webpack_require__(13);
+var _foundation3 = __webpack_require__(14);
 
-var _foundation4 = __webpack_require__(12);
+var _foundation4 = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19768,7 +19638,7 @@ var _foundationUtil3 = __webpack_require__(1);
 
 var _foundation = __webpack_require__(2);
 
-var _foundationUtil4 = __webpack_require__(10);
+var _foundationUtil4 = __webpack_require__(11);
 
 var _foundationUtil5 = __webpack_require__(5);
 
@@ -21366,7 +21236,7 @@ var _foundationUtil2 = __webpack_require__(4);
 
 var _foundationUtil3 = __webpack_require__(5);
 
-var _foundation = __webpack_require__(15);
+var _foundation = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22247,13 +22117,160 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	);
 });
 ;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(20);
+"use strict";
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _foundation = __webpack_require__(24);
+
+var _foundationUtil = __webpack_require__(1);
+
+var _foundationUtil2 = __webpack_require__(7);
+
+var _foundationUtil3 = __webpack_require__(8);
+
+var _foundationUtil4 = __webpack_require__(3);
+
+var _foundationUtil5 = __webpack_require__(4);
+
+var _foundationUtil6 = __webpack_require__(6);
+
+var _foundationUtil7 = __webpack_require__(9);
+
+var _foundationUtil8 = __webpack_require__(19);
+
+var _foundationUtil9 = __webpack_require__(11);
+
+var _foundationUtil10 = __webpack_require__(5);
+
+var _foundation2 = __webpack_require__(23);
+
+var _foundation3 = __webpack_require__(12);
+
+var _foundation4 = __webpack_require__(13);
+
+var _foundation5 = __webpack_require__(14);
+
+var _foundation6 = __webpack_require__(25);
+
+var _foundation7 = __webpack_require__(15);
+
+var _foundation8 = __webpack_require__(26);
+
+var _foundation9 = __webpack_require__(27);
+
+var _foundation10 = __webpack_require__(28);
+
+var _foundation11 = __webpack_require__(29);
+
+var _foundation12 = __webpack_require__(30);
+
+var _foundation13 = __webpack_require__(32);
+
+var _foundation14 = __webpack_require__(33);
+
+var _foundation15 = __webpack_require__(34);
+
+var _foundation16 = __webpack_require__(35);
+
+var _foundation17 = __webpack_require__(17);
+
+var _foundation18 = __webpack_require__(36);
+
+var _foundation19 = __webpack_require__(18);
+
+var _foundation20 = __webpack_require__(37);
+
+var _foundation21 = __webpack_require__(38);
+
+var _foundation22 = __webpack_require__(31);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_foundation.Foundation.addToJquery(_jquery2.default);
+
+// Add Foundation Utils to Foundation global namespace for backwards
+// compatibility.
+
+_foundation.Foundation.rtl = _foundationUtil.rtl;
+_foundation.Foundation.GetYoDigits = _foundationUtil.GetYoDigits;
+_foundation.Foundation.transitionend = _foundationUtil.transitionend;
+
+_foundation.Foundation.Box = _foundationUtil2.Box;
+_foundation.Foundation.onImagesLoaded = _foundationUtil3.onImagesLoaded;
+_foundation.Foundation.Keyboard = _foundationUtil4.Keyboard;
+_foundation.Foundation.MediaQuery = _foundationUtil5.MediaQuery;
+_foundation.Foundation.Motion = _foundationUtil6.Motion;
+_foundation.Foundation.Move = _foundationUtil6.Move;
+_foundation.Foundation.Nest = _foundationUtil7.Nest;
+_foundation.Foundation.Timer = _foundationUtil8.Timer;
+
+// Touch and Triggers previously were almost purely sede effect driven,
+// so no // need to add it to Foundation, just init them.
+
+_foundationUtil9.Touch.init(_jquery2.default);
+
+_foundationUtil10.Triggers.init(_jquery2.default, _foundation.Foundation);
+
+_foundation.Foundation.plugin(_foundation2.Abide, 'Abide');
+
+_foundation.Foundation.plugin(_foundation3.Accordion, 'Accordion');
+
+_foundation.Foundation.plugin(_foundation4.AccordionMenu, 'AccordionMenu');
+
+_foundation.Foundation.plugin(_foundation5.Drilldown, 'Drilldown');
+
+_foundation.Foundation.plugin(_foundation6.Dropdown, 'Dropdown');
+
+_foundation.Foundation.plugin(_foundation7.DropdownMenu, 'DropdownMenu');
+
+_foundation.Foundation.plugin(_foundation8.Equalizer, 'Equalizer');
+
+_foundation.Foundation.plugin(_foundation9.Interchange, 'Interchange');
+
+_foundation.Foundation.plugin(_foundation10.Magellan, 'Magellan');
+
+_foundation.Foundation.plugin(_foundation11.OffCanvas, 'OffCanvas');
+
+_foundation.Foundation.plugin(_foundation12.Orbit, 'Orbit');
+
+_foundation.Foundation.plugin(_foundation13.ResponsiveMenu, 'ResponsiveMenu');
+
+_foundation.Foundation.plugin(_foundation14.ResponsiveToggle, 'ResponsiveToggle');
+
+_foundation.Foundation.plugin(_foundation15.Reveal, 'Reveal');
+
+_foundation.Foundation.plugin(_foundation16.Slider, 'Slider');
+
+_foundation.Foundation.plugin(_foundation17.SmoothScroll, 'SmoothScroll');
+
+_foundation.Foundation.plugin(_foundation18.Sticky, 'Sticky');
+
+_foundation.Foundation.plugin(_foundation19.Tabs, 'Tabs');
+
+_foundation.Foundation.plugin(_foundation20.Toggler, 'Toggler');
+
+_foundation.Foundation.plugin(_foundation21.Tooltip, 'Tooltip');
+
+_foundation.Foundation.plugin(_foundation22.ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
+
+module.exports = _foundation.Foundation;
+
+/***/ }),
+/* 41 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(21);
 
 
 /***/ })

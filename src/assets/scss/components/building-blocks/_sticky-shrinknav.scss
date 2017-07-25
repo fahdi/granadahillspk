@@ -2,7 +2,7 @@ $sticky-shrinknav-menu-height: rem-calc(60);
 $sticky-shrinknav-hero-height: 300px;
 
 body {
-  padding-top: $sticky-shrinknav-hero-height + 30px;
+  padding-top: $sticky-shrinknav-hero-height ;
 }
 
 .sticky-shrinknav-menu {
@@ -60,11 +60,11 @@ body.sticky-shrinknav-wrapper {
 
   .sticky-shrinknav-header {
     height: $sticky-shrinknav-menu-height;
-    background-color: rgba($secondary-color, 1);
+    background-color: rgba($secondary-color, 0.1);
 
     .sticky-shrinknav-header-title {
       transform: scale(0.1);
-      transition: all 0.3s ease;
+      transition: all 1s ease;
     }
     img {
       display: none;
@@ -72,7 +72,6 @@ body.sticky-shrinknav-wrapper {
   }
 
   .sticky-shrinknav-menu {    
-    background-color: rgba($white, 0.5);
     transition: all 1s ease;    
   }
 }

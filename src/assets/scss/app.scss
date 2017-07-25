@@ -4,6 +4,7 @@
 @import 'foundation';
 @import 'motion-ui';
 @import 'font-awesome';
+@import 'components/splash';
 
 @include foundation-global-styles;
 @include foundation-grid;
@@ -53,8 +54,13 @@
 @include motion-ui-animations;
 
 @import 'components/building-blocks/sticky-shrinknav';
-@import 'components/building-blocks/marketing-site-footer';
+@import 'components/building-blocks/home-hero';
 @import 'components/building-blocks/pull-quote';
+@import 'components/building-blocks/marketing-site-footer';
 
 
 
+@import 'components/building-blocks/marketing-site-hero';
+@import 'components/building-blocks/responsive-hero-section';
+@import 'components/building-blocks/marketing-site-content-section';
+@import 'components/building-blocks/marketing-site-three-up';

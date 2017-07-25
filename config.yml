@@ -27,9 +27,10 @@ PATHS:
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
-    - "node_modules/font-awesome/scss"
+    - "node_modules/font-awesome/scss"        
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
+    - "node_modules/splash-screen/dist/splash.js"
     - "src/assets/js/building-blocks/sticky-shrinknav.js"
     - "src/assets/js/app.js"
   fonts:
