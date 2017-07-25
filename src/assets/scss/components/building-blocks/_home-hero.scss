@@ -1,11 +1,13 @@
 $home-hero-height: 65vh;
 @mixin background-opacity($color, $opacity: 0.7) {
-    background: $color; /* The Fallback */
-    background: rgba($color, $opacity);
+  background: $color;
+  /* The Fallback */
+  background: rgba($color, $opacity);
 }
 
 .home-hero {
-  background: url('../img/modern_house.jpg') top right no-repeat;
+  @include background-opacity($dark-green, 0.5);
+  background: url('../img/modern_house@0,1x.jpg') top right no-repeat;
   height: $home-hero-height;
   background-size: cover;
   display: flex;
@@ -13,30 +15,29 @@ $home-hero-height: 65vh;
 
   @media screen and (min-width: 40em) {
     background-position: center center;
-  }
-
+  }  
 }
-
 .home-hero-content {
   max-width: 100%;
   margin: 0 auto;
-  padding: 2%;  
-  @include background-opacity($black, 0.5);
+  padding: 2%;
+  @include background-opacity($black,
+  0.5);
 
   h1 {
-    font-size: 32px;    
+    font-size: 32px;
     color: $white;
   }
-  
-  p {    
+
+  p {
     color: $primary-color;
-  }  
+  }
 
   .button.round {
     border-radius: 5000px;
     text-transform: uppercase;
     font-size: 12px;
-    margin-bottom: 0;  
+    margin-bottom: 0;
     background: rgba($dark-green, 1);
   }
 
