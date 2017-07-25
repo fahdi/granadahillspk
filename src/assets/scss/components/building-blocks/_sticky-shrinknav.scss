@@ -15,9 +15,8 @@ body {
   transition: all 0.5s ease;  
 
   li {
-    border-radius: 2px;
-    background-color: rgba($primary-color, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 2px;    
+    transition: all 0.7s ease;
     margin: 15px;
     &:hover {
       box-shadow: 0 0 0 1px $white;
@@ -70,5 +69,10 @@ body.sticky-shrinknav-wrapper {
     img {
       display: none;
     }
+  }
+
+  .sticky-shrinknav-menu {    
+    background-color: rgba($white, 0.5);
+    transition: all 1s ease;    
   }
 }
