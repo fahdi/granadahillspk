@@ -1,11 +1,11 @@
-$marketing-site-footer-bg: $absolute-black;
+$gh-footer-bg: $absolute-black;
 
-.marketing-site-footer {
-  background: $marketing-site-footer-bg;
-  color: lighten($marketing-site-footer-bg, 50%);
+.gh-footer {
+  background: $gh-footer-bg;
+  color: lighten($gh-footer-bg, 50%);
   padding: 2rem 0 0;
 
-  .marketing-site-footer-menu-social a {
+  .gh-footer-menu-social a {
     color: $white;
   }
 
@@ -24,25 +24,25 @@ $marketing-site-footer-bg: $absolute-black;
   }
 }
 
-.marketing-site-footer-name {
+.gh-footer-name {
   color: $white;
   margin-bottom: 1rem;
   font-size: 2rem;
 }
 
-.marketing-site-footer-title {
+.gh-footer-title {
   color: $white;
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
 
-.marketing-site-footer-block {
+.gh-footer-block {
   display: flex;
   margin-bottom: 1rem;
   
   .fa {
     font-size: 1.1rem;
-    color: lighten($marketing-site-footer-bg, 50%);
+    color: lighten($gh-footer-bg, 50%);
   }
 
   p {
@@ -51,8 +51,8 @@ $marketing-site-footer-bg: $absolute-black;
   }
 }
 
-.marketing-site-footer-bottom {
-  background: lighten($marketing-site-footer-bg, 90%);
+.gh-footer-bottom {
+  background: lighten($gh-footer-bg, 90%);
   padding: 1rem 0;
 
   p,
@@ -60,11 +60,11 @@ $marketing-site-footer-bg: $absolute-black;
     margin-bottom: 0;
   }
 
-  .marketing-site-footer-bottom-links {
+  .gh-footer-bottom-links {
     justify-content: flex-end;
 
     a {
-      color: lighten($marketing-site-footer-bg, 40%);
+      color: lighten($gh-footer-bg, 40%);
     }
 
     @include breakpoint(medium down) {

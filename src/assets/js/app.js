@@ -97,3 +97,12 @@ window.onload = function loadStuff() {
 };
 
 $(document).foundation();
+
+$(window).scroll(function(e){
+  parallax();
+});
+
+function parallax(){
+  var scrolled = $(window).scrollTop();
+  $('#mobley-header').css('background-position','center ' + -(scrolled*0.35)+'px');
+}
