@@ -1,8 +1,8 @@
-$marketing-site-footer-bg: #2c3840;
+$marketing-site-footer-bg: $absolute-black;
 
 .marketing-site-footer {
   background: $marketing-site-footer-bg;
-  color: lighten($marketing-site-footer-bg, 40%);
+  color: lighten($marketing-site-footer-bg, 50%);
   padding: 2rem 0 0;
 
   .marketing-site-footer-menu-social a {
@@ -39,10 +39,10 @@ $marketing-site-footer-bg: #2c3840;
 .marketing-site-footer-block {
   display: flex;
   margin-bottom: 1rem;
-
+  
   .fa {
-    font-size: 2rem;
-    color: darken($marketing-site-footer-bg, 20%);
+    font-size: 1.1rem;
+    color: lighten($marketing-site-footer-bg, 50%);
   }
 
   p {
@@ -52,7 +52,7 @@ $marketing-site-footer-bg: #2c3840;
 }
 
 .marketing-site-footer-bottom {
-  background: darken($marketing-site-footer-bg, 20%);
+  background: lighten($marketing-site-footer-bg, 90%);
   padding: 1rem 0;
 
   p,
