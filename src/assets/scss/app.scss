@@ -3,11 +3,11 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
+@import 'font-awesome';
 
 @include foundation-global-styles;
-// @include foundation-grid;
+@include foundation-grid;
 // @include foundation-flex-grid;
-//
 @include foundation-xy-grid-classes;
 @include foundation-typography;
 @include foundation-button;
@@ -42,7 +42,7 @@
 @include foundation-thumbnail;
 @include foundation-title-bar;
 @include foundation-tooltip;
-@include foundation-top-bar;
+//@include foundation-top-bar;
 @include foundation-visibility-classes;
 // @include foundation-float-classes;
 @include foundation-flex-classes;
@@ -52,16 +52,9 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-@import 'components/building-blocks/responsive-hero-section';
-@import 'components/building-blocks/tabbed-search';
-@import 'components/building-blocks/translucent-form-overlay';
-@import 'components/building-blocks/topbar-responsive';
-@import 'components/building-blocks/full-width-testimonial';
-@import 'components/building-blocks/featured-image-block-grid';
-@import 'components/building-blocks/topbar-center-logo';
-@import 'components/building-blocks/travel-feature-card';
-@import 'components/building-blocks/testimonial-block-vertical';
-@import 'components/building-blocks/marketing-site-content-section';
+@import 'components/building-blocks/sticky-shrinknav';
 @import 'components/building-blocks/marketing-site-footer';
-@import 'components/building-blocks/social-footer';
-@import 'components/building-blocks/image-hover-wrapper';
+@import 'components/building-blocks/pull-quote';
+
+
+
