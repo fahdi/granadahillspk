@@ -6,8 +6,8 @@ $home-hero-height: 65vh;
 }
 
 .home-hero {
-  @include background-opacity($dark-green, 0.5);
-  background: url('../img/modern_house@0,1x.jpg') top right no-repeat;
+  @include background-opacity($black, 0.5);
+  background: url('../img/modern_house.jpg') top right no-repeat;
   height: $home-hero-height;
   background-size: cover;
   display: flex;
