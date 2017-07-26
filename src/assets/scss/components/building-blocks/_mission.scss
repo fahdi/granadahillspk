@@ -1,6 +1,6 @@
 $hero-height: 60vh;
 
-.hero-section {
+.mission {
   @include background-opacity($black, 0.5);
   background: url('../img/nice-picture.jpg') 50% no-repeat;
   background-size: cover;
@@ -10,7 +10,7 @@ $hero-height: 60vh;
   align-items: center;
   justify-content: center;
 
-  .hero-section-text {
+  .mission-text {
     color: $white;
     text-shadow: 1px 1px 2px $black;
   }
