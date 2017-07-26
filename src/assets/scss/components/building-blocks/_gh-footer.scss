@@ -38,11 +38,11 @@ $gh-footer-bg: $absolute-black;
 
 .gh-footer-block {
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem;
   
   .fa {
     font-size: 1.1rem;
-    color: lighten($gh-footer-bg, 50%);
+    color: lighten($gh-footer-bg, 90%);
   }
 
   p {

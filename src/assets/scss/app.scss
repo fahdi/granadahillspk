@@ -6,6 +6,12 @@
 @import 'font-awesome';
 @import 'components/splash';
 
+@mixin background-opacity($color, $opacity: 0.7) {
+  background: $color;
+  /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
 @include foundation-global-styles;
 @include foundation-grid;
 // @include foundation-flex-grid;
