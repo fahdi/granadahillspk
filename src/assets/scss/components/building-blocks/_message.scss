@@ -1,5 +1,5 @@
 $pull-quote-maxwidth: 50%;
-$pull-quote-color: $primary-color;
+$pull-quote-color: $dark-gray;
 $pull-quote-offset-large: -25%;
 $pull-quote-offset-medium: -15%;
 $pull-quote-fontsize-medium-up: 1.875rem;
@@ -24,7 +24,7 @@ $message-height: 60vh;
 }
 
 .message-text {
-  padding:50px;
+  padding:2rem;
 }
 
 .pull-quote {

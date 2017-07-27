@@ -19,7 +19,10 @@ $gh-footer-bg: $absolute-black;
 
   @include breakpoint(small only) {
     .columns {
-      margin-bottom: 2rem;
+      margin-bottom: 2rem;      
+    }
+    .medium-4 {
+      padding: 0 1.5rem ;
     }
   }
 }

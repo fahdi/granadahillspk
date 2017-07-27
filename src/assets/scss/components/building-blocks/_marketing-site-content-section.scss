@@ -1,6 +1,7 @@
 .marketing-site-content-section {
   display: flex;
   flex-wrap: wrap;
+  background: lighten($light-gray, 7%);
 
   .button.round {
     border-radius: 5000px;
@@ -12,7 +13,7 @@
 
   .marketing-site-content-section-img {
     align-self: center;
-    flex: 1 0 100%;
+    flex: 1 0 100%;    
 
     img {
       width: 100%;
@@ -45,5 +46,6 @@
 }
 
 .marketing-site-content-section-block-subheader {
-  font-size: 13px;
+  font-size: 0.9rem;
+  color: $black;
 }
